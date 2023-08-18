@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation'
 import signUp from '@/firebase/auth/signup';
 import Link from 'next/link'
 
+
 const signup = () => {
   const [data, setData] = React.useState({ email: "", password: "" })
   const router = useRouter();
