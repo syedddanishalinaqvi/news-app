@@ -10,7 +10,7 @@ const Fav = () => {
     const db=getFirestore(app)
     const messageRef = collection(db, "fav");
 
-    
+
     React.useEffect(() => {
         const queryList = query(messageRef, where("user_id", "==", localStorage.getItem('user')));
         const baat=onSnapshot(queryList, (snapshot) => {
@@ -21,7 +21,7 @@ const Fav = () => {
             setData(messages);
         })
         return ()=>baat();
-    })
+    },[])
 
     return (
     <div>
