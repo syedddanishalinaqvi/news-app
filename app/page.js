@@ -5,8 +5,9 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import signIn from '@/firebase/auth/signin';
 
+
 const signin = () => {
-    const [data, setData] = React.useState({ email: "", password: "" })
+    const [data, setData] = React.useState({ email: "", password: "" });
   const router = useRouter();
   const onchange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -18,6 +19,7 @@ const signin = () => {
       return alert("User don't exist");
     }
     console.log(result);
+    localStorage.setItem('user',result.user.uid)
     return router.push("/news")
   }
     return (
