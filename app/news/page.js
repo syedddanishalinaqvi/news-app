@@ -2,11 +2,10 @@
 import React from 'react'
 import addData from "@/firebase/firestore/addData";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import NewsItemGridView from '../NewsItemGridView'
-import NewsItemListView from '../NewsItemListView'
-import Navbar from '../Navbar'
-import FavContext from '@/Context/FavContext'
-import Fav from '../fav/page'
+import NewsItemGridView from '../../Components/NewsItemGridView'
+import NewsItemListView from '../../Components/NewsItemListView'
+import Navbar from '../../Components/Navbar'
+
 
 
 
@@ -16,13 +15,11 @@ const News = () => {
     const [data, setData] = React.useState([]);
     const [fav, setFav] = React.useState([]);
     const buttonHtml = React.useRef("Grid View");
-    var user_id;
 
     React.useEffect(() => {
         fetch(`https://newsapi.org/v2/top-headlines?country=in&apiKey=9ba80058b89d4c80833cb705fec6cd44`)
             .then(res => res.json())
             .then(result => setData([result.articles]))
-            .then(console.log(data))
     }, [])
 
     const handleFav=async (e,data)=>{
@@ -34,11 +31,10 @@ const News = () => {
             }
         }
         if(c!==1){
-            const {result,error}=await addData('fav',data.title,{...data,user_id:localStorage.getItem('user')});
+            const {error}=await addData('fav',data.title,{...data,user_id:localStorage.getItem('user')});
             if(error){
                 return console.log(error)
             }
-            console.log(result)
             setFav([...fav,data]);
         }
     }
@@ -74,13 +70,6 @@ const News = () => {
                             </span><NewsItemGridView data={element} /></div>
                         })
                     }
-                    <div style={{display:"none"}}>
-                    {
-                        <FavContext.Provider value={{fav}}>
-                        <Fav/>
-                        </FavContext.Provider>
-                    }
-                    </div>
                 </div>
             </div>
         </>

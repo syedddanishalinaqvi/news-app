@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import Link from 'next/link'
-import NewsItemGridView from '../NewsItemGridView'
+import NewsItemGridView from '../../Components/NewsItemGridView'
 import { query,collection, onSnapshot, where, orderBy,getFirestore } from "firebase/firestore"
 import app from '@/firebase/config'
 
@@ -9,6 +9,8 @@ const Fav = () => {
     const [data, setData] = React.useState([]);
     const db=getFirestore(app)
     const messageRef = collection(db, "fav");
+
+    
     React.useEffect(() => {
         const queryList = query(messageRef, where("user_id", "==", localStorage.getItem('user')));
         const baat=onSnapshot(queryList, (snapshot) => {

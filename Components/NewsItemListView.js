@@ -1,6 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import NoImage from '../assests/NoImage.jpg'
+
 
 const NewsItemListView = ({data}) => {
     const{title,description,url,urlToImage}=data;
