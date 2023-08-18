@@ -2,7 +2,7 @@
 
 As this name suggests it is a news app where you can grasp everyday top headlines around you or worldwide. This is a simple app where you can Register your account and see all the news. It has one more benefit that news that you think is important and also want to tell others or want to see again, you can add to your Favourites.
 
-## To Get Started with this App Please go throw the next js documentation or simply run these commands
+## To Get Started with this App Please go through the Next js documentation or simply run these commands
 ## Getting Started
 
 First, run the development server:
@@ -22,4 +22,4 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ## For Login 
-![alt text](https://github.com/syedddanishalinaqvi/news-app/blob/ScreenShots/image.jpg?raw=true)
+<img src="/Screenshots/home.jpg" alt="Alt text" title="Optional title">
